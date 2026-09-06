@@ -1,0 +1,85 @@
+{
+    apikey: "",
+
+    engine: "K.O bot - Self Developed AI",
+
+    verbosity: 1,
+    log_game_chat: true,
+
+    bot: {
+        command: [
+            "python",
+            "gtp_engine.py"
+        ],
+
+        manager: "persistent",
+        enable_clock: true,
+        release_delay: 100,
+        persistent_idle_timeout: 600000
+    },
+
+    allowed_board_sizes: [19],
+
+    allow_ranked: true,
+    allow_unranked: true,
+
+    // 핸디캡은 친선전만
+    allow_ranked_handicap: false,
+    allow_unranked_handicap: true,
+
+    max_games_per_player: 1,
+
+    // 속기 허용
+    allowed_blitz_settings: {
+        concurrent_games: 4,
+
+        simple: {
+            per_move_time_range: [1, 60]
+        },
+
+        byoyomi: {
+            main_time_range: [0, 600],
+            period_time_range: [1, 60],
+            periods_range: [1, 10]
+        },
+
+        fischer: {
+            initial_time_range: [1, 600],
+            max_time_range: [1, 3600],
+            time_increment_range: [1, 60]
+        }
+    },
+
+    // 서신 허용
+    allowed_correspondence_settings: {
+        concurrent_games: 4,
+
+        simple: {
+            per_move_time_range: [43200, 259200]
+        },
+
+        byoyomi: {
+            main_time_range: [0, 259200],
+            period_time_range: [43200, 259200],
+            periods_range: [1, 10]
+        },
+
+        fischer: {
+            initial_time_range: [86400, 604800],
+            max_time_range: [86400, 604800],
+            time_increment_range: [43200, 259200]
+        }
+    },
+
+    // 라이브/래피드 차단
+    allowed_live_settings: null,
+    allowed_rapid_settings: null,
+
+    min_move_time: 1500,
+
+    hidden: false,
+    decline_new_challenges: false,
+
+    showboard: false
+}
+
